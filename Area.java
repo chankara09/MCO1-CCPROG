@@ -10,13 +10,17 @@ public class Area {
 
     public Area(){
         SInputScanner = new Scanner(System.in);
-        rows = 5;
-        columns = 1;
-        Tracker = 0;
-        nCreatures = new Creatures();
-        nCreatures.createCreatures();
+        rows = 5; //the area 1 rows
+        columns = 1; //the area 1 column
+        Tracker = 0; //shows where the player is 
+        nCreatures = new Creatures(); //instantiates the creatures 
+        nCreatures.createCreatures(); //creates the creatures
     }
 
+    /**
+     * prints area1 with the tracker in initially at 0,0
+     * 
+     */
     public void gridArea1(){
         System.out.println(".......................");
         for (int i = 0; i < rows; i++) {
@@ -32,6 +36,11 @@ public class Area {
         System.out.println(".......................");
     }
 
+     /**
+     * randomizes the chance that a creature will appear, 
+     * if a wild creature appears, this will make way for Battle Phase (call battle phase that has its own menu/thingy in the battle phase class) (do-while)
+     * 
+     */
     public void addRandomCreatures(){
         int randomChance = (int)(Math.random()*100) + 1;
         if(randomChance <= 40){
@@ -48,6 +57,10 @@ public class Area {
         }
     }
 
+    /**
+     * asks for user input whether to go up or down the area 1
+     * can return back to the display class, playerArea() if user input is 'R'
+     */
     public void userInput(){
         while(!exit){
             gridArea1();
@@ -80,7 +93,10 @@ public class Area {
         }
     }
 
-
+     /**
+     * 
+     * Closes the input scanner
+     */
     public void closeScanner() {
         SInputScanner.close();
     }

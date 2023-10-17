@@ -1,20 +1,29 @@
 import java.util.Scanner;
 
 public class Display {
-    private Scanner SInputScanner; 
-    private Player nPlayer;
-    private Inventory aInventory;
-    private Creatures CCreature;
-    private Area aArea;
-    boolean exit = false;
+    private Scanner SInputScanner; // the whole class' scanner of the user input
+    private Player nPlayer; //access modifier of the player class
+    private Inventory aInventory; //access modifier of the inventory class
+    private Creatures CCreature; //access modifier of the creature class
+    private Area aArea; //access modifier of the area class
+    boolean exit = false; //the whole class' boolean 
 
+    /**
+     * The Display's own constructor
+     * 
+     */
     public Display(){
-        SInputScanner = new Scanner(System.in);
-        CCreature = new Creatures();
-        aInventory = new Inventory();
-        aArea = new Area();
-        nPlayer = new Player("DefaultName", aInventory);
+        SInputScanner = new Scanner(System.in); //scanner
+        CCreature = new Creatures(); //instantiates the playing new creatures
+        aInventory = new Inventory(); //instantiates the playing new inv
+        aArea = new Area(); //instantiates the playing new area
+        nPlayer = new Player("DefaultName", aInventory); //the player's default name and inv
     }
+
+    /**
+     * Displays the start Menu 
+     * Takes the user input to either start or exit the game
+     */
     public void startMenu(){
         while(!exit){
             System.out.println(".......................");
@@ -41,6 +50,11 @@ public class Display {
         }
     }
 
+    /**
+     * Displays getting the player's Name
+     * Takes the user input to get the player name if the input is not null, 
+     * if null returns to the startMenu()
+     */
     public void getNewPlayerName(){
         while(!exit){
             System.out.println(".......................");
@@ -62,10 +76,14 @@ public class Display {
                 System.out.println("INVALID NAME!"); 
                 return;
             }
-            
         }
     }
 
+    /**
+     * Displays the starterMenu
+     * Takes the user input to get the player's starter creature, 
+     * returns to startMenu() if user input is 4
+     */
     public void starterMenu(){
         while(!exit){
             System.out.println(".......................");
@@ -106,6 +124,11 @@ public class Display {
         }
     }
 
+    /**
+     * Displays the playerMenu
+     * Takes the user input to either go to Area or Inventory
+     * returns to startMenu() if user input is 3
+     */
     public void playerMenu(){
         while(!exit){
             System.out.println("\n");
@@ -135,6 +158,11 @@ public class Display {
         }
     }
 
+    /**
+     * Displays the playerArea Menu
+     * Takes the user input to either go to 1st Area or
+     * returns to playerMenu() if user input is 2
+     */
     public void playerArea(){
         while(!exit){
             System.out.println(".......................");
@@ -160,8 +188,13 @@ public class Display {
         }
     }
 
+    /**
+     * Displays the playerInventory Menu and Active Creature
+     * Takes the user input to either change active creature, check creaturepedia, and see the captured creatures
+     * returns to playerMenu() if user input is 5
+     */
     public void playerInventory(){
-        Creatures playerActiveCreature = nPlayer.getactiveCreature(); 
+        Creatures playerActiveCreature = nPlayer.getactiveCreature(); //shows the current active creature
         while(!exit){
             System.out.println("...............................");
             System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");
@@ -201,6 +234,12 @@ public class Display {
         }
     }
 
+    /**
+     * Displays the active Creture
+     * Checks if he current creature array only has the current Active creature, if yes only says you have the current active creature and returns 
+     * else, it displays the list of captured creatures for the player to choose 
+     * (to be modified to take a creature and set it as current active creature and has the option to return)
+     */
     public void changeActiveCreature(){
         while(!exit){
             if (!aInventory.checkCreatures()) {
@@ -220,6 +259,11 @@ public class Display {
         }
     }
 
+    /**
+     * Displays the player's captured creatures 
+     * Similar to changeActiveCreature()'s list of captured creatures
+     * Should be able to return
+     */
     public void capturedCreatures(){
         while(!exit){
 
@@ -227,9 +271,14 @@ public class Display {
         }
     }
 
+    /**
+     * Displays the creaturePedia
+     * Takes the user input to check the list of catchable creatures (currently level 1 only)
+     * returns to playerMenu() if user input is 2
+     */
     public void creaturePedia(){
         while(!exit){
-            CCreature.createCreatures(); 
+            CCreature.createCreatures(); //creates the creatures
             System.out.println(".......................");
             System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");
             System.out.println("   LIST OF CREATURES   ");
@@ -252,6 +301,10 @@ public class Display {
         }
     }
 
+     /**
+     * 
+     * Closes the input scanner
+     */
     public void closeScanner() {
         SInputScanner.close();
     }
