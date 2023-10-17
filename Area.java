@@ -1,5 +1,12 @@
 import java.util.Scanner;
-
+/**
+ * The Area class represents an area in the game.
+ * Each area has a grid with rows and columns, a tracker to show where the player is, a list of creatures, and a player.
+ * 
+ * The class provides methods for printing the area grid, adding random creatures, handling user input, and closing the input scanner.
+ * 
+ * The area is a 5x1 grid where the player can move up and down. The player can encounter creatures in the area, which triggers a battle phase.
+ */
 public class Area {
     private Scanner SInputScanner;
     private Integer rows;
@@ -8,6 +15,7 @@ public class Area {
     private Creatures nCreatures;
     private Player player;
     boolean exit = false;
+
 
     public Area(Player player){
         SInputScanner = new Scanner(System.in);
@@ -20,8 +28,7 @@ public class Area {
     }
 
     /**
-     * prints area1 with the tracker in initially at 0,0
-     * 
+     * Prints the grid for area 1 with the tracker in initially at (0,0)
      */
     public void gridArea1(){
         System.out.println(".......................");
@@ -40,8 +47,8 @@ public class Area {
 
      /**
      * randomizes the chance that a creature will appear, 
-     * if a wild creature appears, this will make way for Battle Phase (call battle phase that has its own menu/thingy in the battle phase class) (do-while)
-     * 
+     * if a wild creature appears, this will make way for Battle Phase 
+     * @return the randomCreature if 
      */
     public Creatures addRandomCreatures(){
         int randomChance = (int)(Math.random()*100) + 1;

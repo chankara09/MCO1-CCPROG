@@ -1,3 +1,13 @@
+/**
+ * The Player class represents a player in the game. 
+ * It includes properties for the player's name, active creature, and inventory.
+ * The class provides methods for getting and setting these properties.
+ * 
+ * Each player has an active creature and an inventory. The active creature is the one currently in use or in battle.
+ * The inventory is a collection of creatures that the player has collected.
+ * 
+ * This class is a part of the game's player management system and is used to keep track of each player's state.
+ */
 public class Player {
     private Creatures activeCreatures; 
     private String strName;

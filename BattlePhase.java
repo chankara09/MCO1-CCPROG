@@ -1,12 +1,27 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Random;
-
+/**
+ * The BattlePhase class represents a battle phase in the game.
+ * Each battle phase involves a player, an enemy creature, and a scanner for user input.
+ * 
+ * The class provides methods for starting a battle, attacking the enemy creature, swapping the active creature, and attempting to catch the enemy creature.
+ * 
+ * The battle phase continues until the player has no actions left or the enemy creature is caught.
+ */
 public class BattlePhase {
     private Player player;
     private Creatures CEnemy;
     private Scanner SC;
 
+    /**
+     * Constructor
+     * Initializes the BattlePhase with a specific player, enemy creature, and scanner.
+     * 
+     * @param player The player participating in the battle.
+     * @param CEnemy The enemy creature in the battle.
+     * @param SC The scanner for user input.
+     */
     public BattlePhase(Player player, Creatures CEnemy, Scanner SC){
         this.player = player;
         this.CEnemy = CEnemy; 

@@ -1,6 +1,18 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * The Display class is responsible for managing the user interface of the game.
+ * It provides methods for displaying various menus and taking user input to navigate through the game.
+ * 
+ * This class uses a Scanner object to read user input. It also maintains references to Player, Inventory, Creatures, and Area objects
+ * to manage the game state and interact with various aspects of the game.
+ * 
+ * The class provides methods for displaying the start menu, getting a new player's name, displaying the starter menu, player menu, player area,
+ * player inventory, changing the active creature, displaying captured creatures, displaying the creaturePedia, and closing the scanner.
+ * 
+ * Each method corresponds to a specific action or menu in the game, and most methods take user input to perform various actions.
+ */
 public class Display {
     private Scanner SInputScanner; // the whole class' scanner of the user input
     private Player nPlayer; //access modifier of the player class

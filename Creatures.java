@@ -1,5 +1,16 @@
 import java.util.Random;
-
+/**
+ * The Creatures class represents a creature in the game.
+ * Each creature has a name, type, family, level, and health.
+ * 
+ * The class provides two constructors: one for creating a specific creature with a given name, type, family, and level, 
+ * and another for creating an array of predefined creatures.
+ * 
+ * The class provides methods for creating the array of creatures, displaying a menu of creatures with level 1, 
+ * getting a random creature from the array, and setting and getting the name, type, family, level, and health of a creature.
+ * 
+ * The class also overrides the toString method to provide a string representation of a creature.
+ */
 public class Creatures {
     private String strName;
     private String strType;
@@ -85,9 +96,9 @@ public class Creatures {
         }
        
     }
-    
     /**
-     * sets health of creature
+     * sets the creature's health 
+     * @param intHealth the creatur's health 
      */
     public void setintHealth(double intHealth){
         this.intHealth = intHealth;
@@ -101,7 +112,8 @@ public class Creatures {
     }
 
     /**
-     *sets creatures name
+     * sets creature's name
+     * @param strName creature's name
      */
     public void setstrName(String strName){
         this.strName = strName;
@@ -115,7 +127,8 @@ public class Creatures {
     }
 
     /**
-     * sets creature's type
+     * sets the creature's type
+     * @param strType creature's type
      */
     public void setstrType(String strType){
         this.strType = strType;
@@ -129,28 +142,30 @@ public class Creatures {
     }
 
     /**
-     * sets creature's family
+     * sets the creatures family
+     * @param strFamily creature's family
      */
     public void setstrFamily(String strFamily){
         this.strFamily = strFamily;
     }
     /**
      * gets creature's family
-     * @return string
+     * @return string creature's family
      */
     public String getstrFamily(){
         return strFamily;
     }
     
     /**
-     * sets the evolution level
+     * sets creature's evolution level
+     * @param intLevel creature'e evolution level
      */
     public void setintLevel(int intLevel){
         this.intLevel = intLevel;
     }
     /**
      * Gets the level of the creature.
-     *
+     8
      * @return The level of the creature as a double.
      */
     public double getintLevel(){

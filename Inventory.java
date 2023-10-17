@@ -1,5 +1,14 @@
 import java.util.ArrayList;
-
+/**
+ * The Inventory class represents an inventory of creatures in the game.
+ * Each inventory has an identifier, a list of captured creatures, and an active creature.
+ * 
+ * The class provides three constructors: one for creating an inventory with a specific identifier, 
+ * one for creating an empty inventory, and one for creating an inventory with a set of initial creatures.
+ * 
+ * The class provides methods for setting and getting the active creature, checking if the inventory contains other creatures, 
+ * getting the list of captured creatures, and adding a captured creature to the inventory.
+ */
 public class Inventory {
     private String pInventory; //tentative string idk
     private ArrayList<Creatures> pCreatures; //arrays of creatures captured
@@ -15,7 +24,10 @@ public class Inventory {
         this.pCreatures = new ArrayList<Creatures>();
         this.pInventory = pInventory;
     }
-
+    /**
+     * Constructor
+     * Initializes an empty Inventory.
+     */
     public Inventory(){
         this.pCreatures = new ArrayList<Creatures>();
     }
@@ -34,8 +46,7 @@ public class Inventory {
     }
     /**
      * Sets the initial active creature.
-     * 
-     * @param CCreature The creature to be set as an initial active creature.
+     * @param initialActiveCreature The creature to be set as an initial active creature.
  */
     public void setInitialActiveCreature(Creatures initialActiveCreature) {
         this.aCreature = initialActiveCreature;
