@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Inventory {
     private String pInventory; //tentative string idk
     private ArrayList<Creatures> pCreatures; //arrays of creatures captured
-    private Creatures A_Creature; //active creature
+    private Creatures aCreature; //active creature
 
     public Inventory(String pInventory){
         this.pCreatures = new ArrayList<Creatures>();
@@ -11,7 +11,7 @@ public class Inventory {
     }
 
     public Inventory(){
-        //normal constructor
+        this.pCreatures = new ArrayList<Creatures>();
     }
 
     /**
@@ -40,7 +40,7 @@ public class Inventory {
      * @param CCreature creature to be set as an active creature 
      */
     public void setActiveCreature(Creatures CCreature){
-        this.A_Creature = CCreature;
+        this.aCreature = CCreature;
     }
 
     /**
@@ -48,7 +48,7 @@ public class Inventory {
      * @return active Creature
      */
     public Creatures getActiveCreature(){
-        return A_Creature;
+        return aCreature;
     }
 
     /**
@@ -57,7 +57,7 @@ public class Inventory {
      */
     public boolean checkCreatures(){
         Creatures activeCreature = getActiveCreature();
-        if (pCreatures == null) {
+        if (pCreatures.isEmpty()) {
             //System.out.println("The ArrayList is null.");
             return false;
         } else {
