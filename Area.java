@@ -16,7 +16,12 @@ public class Area {
     private Player player;
     boolean exit = false;
 
-
+    /**
+     * Constructor for the Area class.
+     * Initializes an Area with a given player, a 5x1 grid, a tracker set at position (0,0), and a set of creatures.
+     *
+     * @param player The player for whom the Area is being created.
+     */
     public Area(Player player){
         SInputScanner = new Scanner(System.in);
         rows = 5; //the area 1 rows
