@@ -21,7 +21,7 @@ public class Creatures {
      */
     public Creatures() {
             createCreatures();
-            
+
     }
 
     /**

@@ -228,7 +228,7 @@ public class Display {
             switch(strInput){
                 case 1:  changeActiveCreature(); break;
                 case 2:  creaturePedia(); break;
-                case 3:  System.out.print("\nTEST3"); break;
+                case 3:  capturedCreatures(); break;
                 case 4:  System.out.print("\nTEST4"); break;
                 case 5:  return;
                 default: System.out.println("INVALID CHOICE!");
@@ -261,15 +261,15 @@ public class Display {
                 }
                 System.out.println("...............................");
 
-                System.out.println("Select a creature to set as active (enter the number): ");
+                System.out.println("SELECT A CREATURE TO SET AS ACTIVE (enter the number): ");
                 int creatureChoice = SInputScanner.nextInt();
                 // Set the selected creature as active
                 if (creatureChoice > 0 && creatureChoice <= capturedList.size()) {
                     Creatures selectedCreature = capturedList.get(creatureChoice - 1);
                     aInventory.setActiveCreature(selectedCreature);
-                    System.out.println("Active creature is now: " + selectedCreature.getstrName());
+                    System.out.println("ACTIVE CREATURE IS NOW: " + selectedCreature.getstrName());
                 } else {
-                    System.out.println("[SYSTEM MESSAGE]: Invalid choice. No changes made.");
+                    System.out.println("[SYSTEM MESSAGE]: INVALID CHOICE! NO CHANGES MADE.");
                 }
 
                 return;
@@ -284,8 +284,18 @@ public class Display {
      */
     public void capturedCreatures(){
         while(!exit){
-
-
+            System.out.println("...............................");
+            System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");
+            System.out.println("   LIST OF CAPTURED CREATURES  ");
+            System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");
+            System.out.println("...............................");
+                //display captured creatures thru arraylist
+            ArrayList <Creatures> capturedList = aInventory.getCapturedCreatures();
+                for (int i = 0; i < capturedList.size(); i++) {
+                    System.out.println((i+1) + ": " + capturedList.get(i).getstrName()); 
+                }
+            System.out.println("...............................");
+            return;
         }
     }
 
