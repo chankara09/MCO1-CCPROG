@@ -43,10 +43,10 @@ public class BattlePhase {
             int nAction = SC.nextInt();
 
             switch(nAction){
-                case 1: attack(A_Creature);
+                case 1: Attack(A_Creature);
                     break;
                 case 2: if(player.getInventory().checkCreatures()){
-                    swap();
+                    Swap();
                 }else{
                     System.out.println("[SYSTEM MESSAGE]: NO AVAILABLE CREATURES TO SWAP");
                     continue;
@@ -63,22 +63,23 @@ public class BattlePhase {
             SC.nextLine();
         }
     }
+
     /**
      * deducts the Enemy’s health by a damage value computed
      * @param A_Creature the active creature 
      */
-    
-    public void attack(Creatures A_Creature){
+    public void Attack(Creatures A_Creature){
         double dDamage = new Random().nextInt(10) + 1 * A_Creature.getintLevel();
         dDamage *= 1.5;
         //not yet implemented if the enemy is stronger than active creature condition
         CEnemy.setintHealth(CEnemy.getintHealth() - dDamage);
         System.out.println("[ATTACK SUCCESFUL]: YOU DEALT " + dDamage + " DAMAGE TO THE ENEMY");
     } 
+
     /**
-     * allows player to 
+     * allows player to swap
      */
-    public void swap(){
+    public void Swap(){
         ArrayList<Creatures> capturedCreatures = player.getInventory().getCapturedCreatures();
         for (int i = 0; i < capturedCreatures.size(); i++) {
             System.out.println((i+1) + ": " + capturedCreatures.get(i).getstrName()); 

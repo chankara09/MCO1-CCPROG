@@ -244,6 +244,7 @@ public class Display {
      */
     public void changeActiveCreature(){
         while(!exit){
+            aInventory.setInitialActiveCreature(aInventory.getActiveCreature());
             if (!aInventory.checkCreatures()) {
                 System.out.println("You only have " + aInventory.getActiveCreature());
                 return;
@@ -267,7 +268,9 @@ public class Display {
                 if (creatureChoice > 0 && creatureChoice <= capturedList.size()) {
                     Creatures selectedCreature = capturedList.get(creatureChoice - 1);
                     aInventory.setActiveCreature(selectedCreature);
+                    nPlayer.setactiveCreature(selectedCreature);
                     System.out.println("ACTIVE CREATURE IS NOW: " + selectedCreature.getstrName());
+                    playerInventory();
                 } else {
                     System.out.println("[SYSTEM MESSAGE]: INVALID CHOICE! NO CHANGES MADE.");
                 }

@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class Area {
     private Scanner SInputScanner;
     private Integer rows;
-    private int columns; 
-    private int Tracker;
+    private Integer columns; 
+    private Integer Tracker;
     private Creatures nCreatures;
     private Player player;
     boolean exit = false;

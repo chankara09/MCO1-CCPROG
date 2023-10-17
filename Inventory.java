@@ -27,6 +27,15 @@ public class Inventory {
         }
     }
 
+    public void setInitialActiveCreature(Creatures initialActiveCreature) {
+        this.aCreature = initialActiveCreature;
+        // Add the initial active creature to the captured creatures list if it's not already there.
+        if (!pCreatures.contains(initialActiveCreature)) {
+            pCreatures.add(initialActiveCreature);
+        }
+    }
+
+
     /**
      * returns the inventory 
      * @return inventory 
