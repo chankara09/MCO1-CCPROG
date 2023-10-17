@@ -11,7 +11,7 @@ public class Display {
 
     /**
      * The Display's own constructor
-     * 
+     * Initializes the Scanner, Creatures, Inventory, and Area objects
      */
     public Display(){
         SInputScanner = new Scanner(System.in); //scanner
@@ -237,10 +237,10 @@ public class Display {
     }
 
     /**
-     * Displays the active Creture
-     * Checks if he current creature array only has the current Active creature, if yes only says you have the current active creature and returns 
-     * else, it displays the list of captured creatures for the player to choose 
-     * (to be modified to take a creature and set it as current active creature and has the option to return)
+     * Changes the active Creature.
+     * Displays the list of captured creatures for the player to choose from.
+     * It returns if the player's current creature array only has the current Active creature.
+     * Otherwise, it allows the player to select a creature to set as active.
      */
     public void changeActiveCreature(){
         while(!exit){

@@ -8,6 +8,15 @@ public class Creatures {
     private double intHealth;
     private Creatures[] arrCreatures; //array of instantiated creatures
 
+    /**
+     * Constructor
+     * Initializes a creature with a name, type, family, and level.
+     *
+     * @param strName The name of the creature.
+     * @param strType The type of the creature.
+     * @param strFamily The family of the creature.
+     * @param intLevel The level of the creature.
+     */
     public Creatures(String strName, String strType, String strFamily, Integer intLevel){
         this.strName = strName;
         this.strType = strType;
@@ -25,7 +34,7 @@ public class Creatures {
     }
 
     /**
-     * Creates array of Creatures 
+     * Creates array of Creatures with predefined names, types, family, and level
      */
     public void createCreatures(){
         arrCreatures = new Creatures[] {
@@ -46,7 +55,8 @@ public class Creatures {
     }
 
     /**
-     * prints the creatures if the int level is 1
+     * Prints the creatures if their level is 1.
+     * Iterates through the array of creatures and prints each creature whose level is 1.
      */
     public void creaturesMenu(){
         for (Creatures creature : arrCreatures){
@@ -57,7 +67,11 @@ public class Creatures {
     }
 
     /**
-     * randomizes the creatures by taking it from the array of instantialized creatures
+     * gets a random creature from the array of instantiated creatures.
+     * If the array is not null and has at least one creature, a random index is generated and the creature at that index is returned.
+     * If the array is null or empty, a message is printed and null is returned.
+     *
+     * @return A random creature, or null if the array is null or empty.
      */
     public Creatures getRandomCreature(){
         if (arrCreatures != null && arrCreatures.length > 0) {
@@ -73,27 +87,27 @@ public class Creatures {
     }
     
     /**
-     * setter of inthealth
+     * sets health of creature
      */
     public void setintHealth(double intHealth){
         this.intHealth = intHealth;
     }
     /**
-     * getter of inthealth
-     * @return integer
+     * gets health of creature
+     * @return health of creature 
      */
     public double getintHealth(){
         return intHealth;
     }
 
     /**
-     * setter of creature name
+     *sets creatures name
      */
     public void setstrName(String strName){
         this.strName = strName;
     }
     /**
-     * getter of creature name
+     * gets creature's name
      * @return string
      */
     public String getstrName(){
@@ -101,27 +115,27 @@ public class Creatures {
     }
 
     /**
-     * setter of creature type
+     * sets creature's type
      */
     public void setstrType(String strType){
         this.strType = strType;
     }
     /**
-     * getter of creature type
-     * @return string
+     * gets creature's type
+     * @return creature's type
      */
     public String getstrType(){
         return strType;
     }
 
     /**
-     * setter of creature family
+     * sets creature's family
      */
     public void setstrFamily(String strFamily){
         this.strFamily = strFamily;
     }
     /**
-     * getter of creature family
+     * gets creature's family
      * @return string
      */
     public String getstrFamily(){
@@ -129,21 +143,22 @@ public class Creatures {
     }
     
     /**
-     * setter of int level
+     * sets the evolution level
      */
     public void setintLevel(int intLevel){
         this.intLevel = intLevel;
     }
     /**
-     * getter of int level
-     * @return int
+     * Gets the level of the creature.
+     *
+     * @return The level of the creature as a double.
      */
     public double getintLevel(){
         return intLevel;
     }
 
     /**
-     * reruns a string representation of Creature 
+     * returns a string representation of Creature 
      * @return A string that contains the name, type, family, and level of Creature.
      */
     public String toString(){

@@ -15,9 +15,11 @@ public class BattlePhase {
     }
 
     /**
-     * starts the battle between players active creature and the encountered creature
-     * @param player the player instance 
-     * @param CEnemy the encountered creature
+     * Starts a battle between the player's active creature and the encountered creature.
+     * The battle continues until the player has no actions left or the enemy creature is caught.
+     *
+     * @param player - the player instance participating in the battle
+     * @param CEnemy - the encountered creature the player is battling against
      */
     public void startBattle(Player player, Creatures CEnemy){
         Creatures A_Creature = player.getInventory().getActiveCreature();
@@ -65,8 +67,11 @@ public class BattlePhase {
     }
 
     /**
-     * deducts the Enemy’s health by a damage value computed
-     * @param A_Creature the active creature 
+     * Attacks the enemy creature, deducting its health by a damage value computed based on the active creature's level.
+     * The damage is calculated as a random number between 1 and 10, multiplied by the active creature's level, and then multiplied by 1.5.
+     * The enemy's health is then reduced by this damage value.
+     *
+     * @param A_Creature - the active creature that is attacking
      */
     public void Attack(Creatures A_Creature){
         double dDamage = new Random().nextInt(10) + 1 * A_Creature.getintLevel();
@@ -77,7 +82,9 @@ public class BattlePhase {
     } 
 
     /**
-     * allows player to swap
+     * Allows the player to swap their active creature with another creature from their captured creatures list.
+     * The player is presented with a list of their captured creatures and asked to select one to set as the active creature.
+     * If the player's choice is valid, the selected creature becomes the active creature.
      */
     public void Swap(){
         ArrayList<Creatures> capturedCreatures = player.getInventory().getCapturedCreatures();
@@ -96,7 +103,14 @@ public class BattlePhase {
             System.out.println("INVALID CHOICE! NO CHANGES MADE");
         }
     }
-
+    
+    /**
+     * Attempts to catch the enemy creature.
+     * The catch rate is calculated based on the enemy's health, and a random number is generated.
+     * If the random number is less than the catch rate, the enemy is caught and added to the player's inventory.
+     *
+     * @return true if the enemy is caught, false otherwise
+     */
     public boolean isCaught(){
         double nCatchRate = 40 + 50 - CEnemy.getintHealth();
         int nRand = new Random().nextInt(100);

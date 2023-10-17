@@ -5,6 +5,12 @@ public class Inventory {
     private ArrayList<Creatures> pCreatures; //arrays of creatures captured
     private Creatures aCreature; //active creature
 
+    /**
+     * Constructor
+     * Initializes the Inventory with a specific inventory identifier.
+     * 
+     * @param pInventory The identifier for the inventory.
+     */
     public Inventory(String pInventory){
         this.pCreatures = new ArrayList<Creatures>();
         this.pInventory = pInventory;
@@ -16,9 +22,9 @@ public class Inventory {
 
     /**
      * Constructor
-     *  initialize the Inventory with a set of creatures when the inventory object is created 
+     * Initialize the Inventory with a set of creatures when the inventory object is created 
+     * 
      * @param initialCreatures creatures to be added to the Creatures[] array
-     * i think i did this to "populate" the array list (cud be erased idk)
      */
     public Inventory(Creatures[] initialCreatures) {
         this.pCreatures = new ArrayList<Creatures>();
@@ -26,7 +32,11 @@ public class Inventory {
             pCreatures.add(creature);
         }
     }
-
+    /**
+     * Sets the initial active creature.
+     * 
+     * @param CCreature The creature to be set as an initial active creature.
+ */
     public void setInitialActiveCreature(Creatures initialActiveCreature) {
         this.aCreature = initialActiveCreature;
         // Add the initial active creature to the captured creatures list if it's not already there.
@@ -35,9 +45,8 @@ public class Inventory {
         }
     }
 
-
     /**
-     * returns the inventory 
+     * gets the inventory 
      * @return inventory 
      */
     public String getInventory(){
@@ -45,15 +54,16 @@ public class Inventory {
     }
 
     /**
-     * sets the active creative 
-     * @param CCreature creature to be set as an active creature 
+     * Sets the active creature.
+     * 
+     * @param CCreature The creature to be set as an active creature.
      */
     public void setActiveCreature(Creatures CCreature){
         this.aCreature = CCreature;
     }
 
     /**
-     * returns the active Creature
+     * gets the active Creature
      * @return active Creature
      */
     public Creatures getActiveCreature(){
@@ -61,8 +71,9 @@ public class Inventory {
     }
 
     /**
-     * checks if the 
-     * @param CCreature creature to be added 
+     * Checks if the inventory contains other creatures besides the active one.
+     * 
+     * @return true if the inventory contains other creatures, false otherwise.
      */
     public boolean checkCreatures(){
         Creatures activeCreature = getActiveCreature();
@@ -81,16 +92,17 @@ public class Inventory {
     }
         
     /**
-     * returns as arraylist of captured creatures 
-     * @return captured creatures
+     * gets an arraylist of captured creatures 
+     * @return an arraylist of captured creatures
      */
     public ArrayList<Creatures> getCapturedCreatures(){
         return pCreatures; 
     }
 
     /**
-     * adds Captured creature to the inventory 
-     * @param CCreature creature to be added 
+     * Adds a captured creature to the inventory.
+     * 
+     * @param CCreature The creature to be added to the inventory.
      */
     public void addCaptured(Creatures CCreature){
         pCreatures.add(CCreature);
