@@ -49,9 +49,10 @@ public class BattlePhase {
                 case 4: return; 
             };
             nActions--;
-            if(nActions == 0 && catchResult == true){
+            if(nActions == 0 && catchResult == false){
                 System.out.println("[ENEMY RUN AWAY!!]");
             }
+            SC.nextLine();
         }
     }
     /**

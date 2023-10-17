@@ -51,7 +51,7 @@ public class Area {
                 System.out.println("A WILD CREATURE APPEARED!:\n" + randomCreature);
                 return randomCreature;
             } 
-            else {
+            else{
                 System.out.println("NO CREATURES AVAILABLE!");
                 return null;
             }
@@ -67,6 +67,7 @@ public class Area {
      * can return back to the display class, playerArea() if user input is 'R'
      */
     public void userInput(){
+        Creatures CEnemy = null;
         while(!exit){
             gridArea1();
             System.out.println(".......................");
@@ -80,22 +81,22 @@ public class Area {
             if(strInput.equalsIgnoreCase("W")){
                 if (Tracker > 0) {
                     Tracker--;
-                    addRandomCreatures();
+                    CEnemy = addRandomCreatures();
                 }
             }
             else if(strInput.equalsIgnoreCase("S")){
                 if (Tracker < rows - 1) {
                     Tracker++;
-                    addRandomCreatures();
+                    CEnemy = addRandomCreatures();
                 }
             }
             else if(strInput.equalsIgnoreCase("R")){
                 return;
-            }
-            else{
+            }else if(strInput.isEmpty()){
+                System.out.println("[SYSTEM MESSAGE]: No Input provided. \n TRY AGAIN");
+            }else{
                 System.out.println("\nINVALID.\nTRY AGAIN!");
             }
-            Creatures CEnemy = addRandomCreatures();
             if(CEnemy != null){
                 BattlePhase battle = new BattlePhase(player, CEnemy, SInputScanner);
                 battle.startBattle(player, CEnemy);
