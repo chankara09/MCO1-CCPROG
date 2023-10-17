@@ -3,18 +3,20 @@ import java.util.Scanner;
 public class Area {
     private Scanner SInputScanner;
     private Integer rows;
-    private Integer columns; 
-    private Integer Tracker;
+    private int columns; 
+    private int Tracker;
     private Creatures nCreatures;
+    private Player player;
     boolean exit = false;
 
-    public Area(){
+    public Area(Player player){
         SInputScanner = new Scanner(System.in);
         rows = 5; //the area 1 rows
         columns = 1; //the area 1 column
         Tracker = 0; //shows where the player is 
         nCreatures = new Creatures(); //instantiates the creatures 
         nCreatures.createCreatures(); //creates the creatures
+        this.player = player; 
     }
 
     /**
@@ -41,19 +43,22 @@ public class Area {
      * if a wild creature appears, this will make way for Battle Phase (call battle phase that has its own menu/thingy in the battle phase class) (do-while)
      * 
      */
-    public void addRandomCreatures(){
+    public Creatures addRandomCreatures(){
         int randomChance = (int)(Math.random()*100) + 1;
         if(randomChance <= 40){
             Creatures randomCreature = nCreatures.getRandomCreature();
             if (randomCreature != null) {
                 System.out.println("A WILD CREATURE APPEARED!:\n" + randomCreature);
+                return randomCreature;
             } 
             else {
                 System.out.println("NO CREATURES AVAILABLE!");
+                return null;
             }
         }
         else{
             System.out.println("NO CREATURES SPAWNED!");
+            return null;
         }
     }
 
@@ -89,6 +94,13 @@ public class Area {
             }
             else{
                 System.out.println("\nINVALID.\nTRY AGAIN!");
+            }
+            Creatures CEnemy = addRandomCreatures();
+            if(CEnemy != null){
+                BattlePhase battle = new BattlePhase(player, CEnemy, SInputScanner);
+                battle.startBattle(player, CEnemy);
+            }else{
+                continue; 
             }
         }
     }

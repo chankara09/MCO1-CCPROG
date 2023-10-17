@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Display {
@@ -16,8 +17,8 @@ public class Display {
         SInputScanner = new Scanner(System.in); //scanner
         CCreature = new Creatures(); //instantiates the playing new creatures
         aInventory = new Inventory(); //instantiates the playing new inv
-        aArea = new Area(); //instantiates the playing new area
         nPlayer = new Player("DefaultName", aInventory); //the player's default name and inv
+        aArea = new Area(nPlayer); //instantiates the playing new area
     }
 
     /**
@@ -180,7 +181,8 @@ public class Display {
             int strInput = SInputScanner.nextInt();
 
             switch(strInput){
-                case 1: aArea.userInput(); break;
+                case 1: aArea.userInput(); 
+                        break;
                 case 2: return;
                 default: System.out.println("INVALID CHOICE!");
             }
@@ -253,7 +255,23 @@ public class Display {
                 System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");
                 System.out.println("...............................");
                 //display captured creatures thru arraylist
+                ArrayList <Creatures> capturedList = aInventory.getCapturedCreatures();
+                for (int i = 0; i < capturedList.size(); i++) {
+                    System.out.println((i+1) + ": " + capturedList.get(i).getstrName()); 
+                }
                 System.out.println("...............................");
+
+                System.out.println("Select a creature to set as active (enter the number): ");
+                int creatureChoice = SInputScanner.nextInt();
+                // Set the selected creature as active
+                if (creatureChoice > 0 && creatureChoice <= capturedList.size()) {
+                    Creatures selectedCreature = capturedList.get(creatureChoice - 1);
+                    aInventory.setActiveCreature(selectedCreature);
+                    System.out.println("Active creature is now: " + selectedCreature.getstrName());
+                } else {
+                    System.out.println("[SYSTEM MESSAGE]: Invalid choice. No changes made.");
+                }
+
                 return;
             }
         }

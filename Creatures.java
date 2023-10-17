@@ -4,8 +4,8 @@ public class Creatures {
     private String strName;
     private String strType;
     private String strFamily;
-    private Integer intLevel;
-    private Integer intHealth;
+    private int intLevel;
+    private double intHealth;
     private Creatures[] arrCreatures; //array of instantiated creatures
 
     public Creatures(String strName, String strType, String strFamily, Integer intLevel){
@@ -50,7 +50,7 @@ public class Creatures {
      */
     public void creaturesMenu(){
         for (Creatures creature : arrCreatures){
-            if(creature.getintLevel().equals(1)){ //if equals to 1
+            if(creature.getintLevel() == 1){ //if equals to 1
                 System.out.println(creature + "\n");
             }
         }
@@ -75,14 +75,14 @@ public class Creatures {
     /**
      * setter of inthealth
      */
-    public void setintHealth(Integer intHealth){
+    public void setintHealth(double intHealth){
         this.intHealth = intHealth;
     }
     /**
      * getter of inthealth
      * @return integer
      */
-    public Integer getintHealth(){
+    public double getintHealth(){
         return intHealth;
     }
 
@@ -131,14 +131,14 @@ public class Creatures {
     /**
      * setter of int level
      */
-    public void setintLevel(Integer intLevel){
+    public void setintLevel(int intLevel){
         this.intLevel = intLevel;
     }
     /**
      * getter of int level
      * @return int
      */
-    public Integer getintLevel(){
+    public double getintLevel(){
         return intLevel;
     }
 

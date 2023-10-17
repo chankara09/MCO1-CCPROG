@@ -70,12 +70,20 @@ public class Inventory {
             }
         }
     }
+        
+    /**
+     * returns as arraylist of captured creatures 
+     * @return captured creatures
+     */
+    public ArrayList<Creatures> getCapturedCreatures(){
+        return pCreatures; 
+    }
 
     /**
      * adds Captured creature to the inventory 
      * @param CCreature creature to be added 
      */
-    public void playerCreatures(Creatures CCreature){
+    public void addCaptured(Creatures CCreature){
         pCreatures.add(CCreature);
     }
 }

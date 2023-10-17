@@ -19,6 +19,9 @@ public class Player {
     public void setInventory(Inventory aInventory){
         this.aInventory = aInventory;
     }
+    public Inventory getInventory(){
+        return aInventory;
+    }
 
     /**
      * setter of player name
