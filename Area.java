@@ -5,6 +5,7 @@ public class Area {
     private Integer rows;
     private Integer columns; 
     private Integer Tracker;
+    private Creatures nCreatures;
     boolean exit = false;
 
     public Area(){
@@ -12,6 +13,8 @@ public class Area {
         rows = 5;
         columns = 1;
         Tracker = 0;
+        nCreatures = new Creatures();
+        nCreatures.createCreatures();
     }
 
     public void gridArea1(){
@@ -21,12 +24,28 @@ public class Area {
                 if (i == Tracker) {
                     System.out.print("[*]"); // Print the tracker
                 } else {
-                    System.out.print("[]");
+                    System.out.print("[ ]");
                 }
             }
             System.out.println();
         }
         System.out.println(".......................");
+    }
+
+    public void addRandomCreatures(){
+        int randomChance = (int)(Math.random()*100) + 1;
+        if(randomChance <= 40){
+            Creatures randomCreature = nCreatures.getRandomCreature();
+            if (randomCreature != null) {
+                System.out.println("A WILD CREATURE APPEARED!:\n" + randomCreature);
+            } 
+            else {
+                System.out.println("NO CREATURES AVAILABLE!");
+            }
+        }
+        else{
+            System.out.println("NO CREATURES SPAWNED!");
+        }
     }
 
     public void userInput(){
@@ -43,11 +62,13 @@ public class Area {
             if(strInput.equalsIgnoreCase("W")){
                 if (Tracker > 0) {
                     Tracker--;
+                    addRandomCreatures();
                 }
             }
             else if(strInput.equalsIgnoreCase("S")){
                 if (Tracker < rows - 1) {
                     Tracker++;
+                    addRandomCreatures();
                 }
             }
             else if(strInput.equalsIgnoreCase("R")){

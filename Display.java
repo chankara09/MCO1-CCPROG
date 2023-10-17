@@ -152,7 +152,7 @@ public class Display {
             int strInput = SInputScanner.nextInt();
 
             switch(strInput){
-                case 1: System.out.println("TEST!"); aArea.userInput(); break;
+                case 1: aArea.userInput(); break;
                 case 2: return;
                 default: System.out.println("INVALID CHOICE!");
             }
@@ -191,7 +191,7 @@ public class Display {
             int strInput = SInputScanner.nextInt();
 
             switch(strInput){
-                case 1:  changeactiveCreature(); break;
+                case 1:  changeActiveCreature(); break;
                 case 2:  creaturePedia(); break;
                 case 3:  System.out.print("\nTEST3"); break;
                 case 4:  System.out.print("\nTEST4"); break;
@@ -201,7 +201,7 @@ public class Display {
         }
     }
 
-    public void changeactiveCreature(){
+    public void changeActiveCreature(){
         while(!exit){
             if (!aInventory.checkCreatures()) {
                 System.out.println("You only have " + aInventory.getActiveCreature());
@@ -217,6 +217,13 @@ public class Display {
                 System.out.println("...............................");
                 return;
             }
+        }
+    }
+
+    public void capturedCreatures(){
+        while(!exit){
+
+
         }
     }
 

@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Creatures {
     private String strName;
     private String strType;
@@ -14,7 +16,7 @@ public class Creatures {
     }
 
     public Creatures() {
-             // Default constructor
+            createCreatures();
     }
 
     public void createCreatures(){
@@ -37,6 +39,19 @@ public class Creatures {
                 System.out.println(creature + "\n");
             }
         }
+    }
+
+    public Creatures getRandomCreature(){
+        if (arrCreatures != null && arrCreatures.length > 0) {
+            Random random = new Random();
+            int randomIndex = random.nextInt(arrCreatures.length);
+            return arrCreatures[randomIndex];
+        }
+        else{
+            System.out.println("NO CREATURES");
+            return null;
+        }
+       
     }
 
     public void setintHealth(Integer intHealth){

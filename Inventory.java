@@ -8,12 +8,19 @@ public class Inventory {
     public Inventory(String pInventory){
         this.pCreatures = new ArrayList<Creatures>();
         this.pInventory = pInventory;
-       // iPlayer.setactiveCreature(creature); // Set the active creature here
     }
 
     public Inventory(){
         //normal constructor
     }
+
+    public Inventory(Creatures[] initialCreatures) {
+        this.pCreatures = new ArrayList<Creatures>();
+        for (Creatures creature : initialCreatures) {
+            pCreatures.add(creature);
+        }
+    }
+
 
     public String getInventory(){
         return pInventory; 
