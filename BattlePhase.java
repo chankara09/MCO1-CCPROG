@@ -26,11 +26,19 @@ public class BattlePhase {
         CEnemy.setintHealth(50);
         
         while(nActions > 0){
-            System.out.println("[Choose an Action]");
-            System.out.println("[1]: ATTACK");
-            System.out.println("[2]: SWAP");
-            System.out.println("[3]: CATCH");
-            System.out.println("[4] to Runaway ");
+            System.out.println(".......................");
+            System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");
+            System.out.println("    CHOOSE AN ACTION    ");
+            System.out.println("~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~");
+            System.out.println(".......................");
+            System.out.println("[1]:      ATTACK       |");
+            System.out.println(".......................");
+            System.out.println("[2]:      SWAP         |");
+            System.out.println(".......................");
+            System.out.println("[3]:      CATCH        |");
+            System.out.println(".......................");
+            System.out.println("[4]      RUNAWAY       |");
+            System.out.println(".......................");
             System.out.print("[INPUT]:");
             int nAction = SC.nextInt();
 
@@ -40,7 +48,7 @@ public class BattlePhase {
                 case 2: if(player.getInventory().checkCreatures()){
                     swap();
                 }else{
-                    System.out.println("[SYSTEM MESSAGE]: No Creatures to swap");
+                    System.out.println("[SYSTEM MESSAGE]: NO AVAILABLE CREATURES TO SWAP");
                     continue;
                 }
                 break;
@@ -50,7 +58,7 @@ public class BattlePhase {
             };
             nActions--;
             if(nActions == 0 && catchResult == false){
-                System.out.println("[ENEMY RUN AWAY!!]");
+                System.out.println("[ENEMY RAN AWAY!!]");
             }
             SC.nextLine();
         }
@@ -65,7 +73,7 @@ public class BattlePhase {
         dDamage *= 1.5;
         //not yet implemented if the enemy is stronger than active creature condition
         CEnemy.setintHealth(CEnemy.getintHealth() - dDamage);
-        System.out.println("[ATTACK SUCCESFUL]: you dealt " + dDamage + " Damage to the enemy");
+        System.out.println("[ATTACK SUCCESFUL]: YOU DEALT " + dDamage + " DAMAGE TO THE ENEMY");
     } 
     /**
      * allows player to 
@@ -76,15 +84,15 @@ public class BattlePhase {
             System.out.println((i+1) + ": " + capturedCreatures.get(i).getstrName()); 
         }
         // Ask the user to select a creature
-        System.out.println("Select a creature to set as active (enter the number): ");
+        System.out.println("SELECT A CREATURE TO SET AS ACTIVE (enter the number): ");
         int creatureChoice = SC.nextInt();
         // Set the selected creature as active
         if (creatureChoice > 0 && creatureChoice <= capturedCreatures.size()) {
             Creatures selectedCreature = capturedCreatures.get(creatureChoice - 1);
             player.getInventory().setActiveCreature(selectedCreature);
-            System.out.println("Active creature is now: " + selectedCreature.getstrName());
+            System.out.println("ACTIVE CREATURE IS NOW: " + selectedCreature.getstrName());
         } else {
-            System.out.println("Invalid choice. No changes made.");
+            System.out.println("INVALID CHOICE! NO CHANGES MADE");
         }
     }
 
