@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * getting the list of captured creatures, and adding a captured creature to the inventory.
  */
 public class Inventory {
-    private String pInventory; //tentative string idk
+    private String pInventory; //tentative string 
     private ArrayList<Creatures> pCreatures; //arrays of creatures captured
     private Creatures aCreature; //active creature
 
