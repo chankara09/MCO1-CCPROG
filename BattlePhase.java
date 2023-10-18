@@ -70,8 +70,12 @@ public class BattlePhase {
                 }
                 break;
                 case 3: catchResult = isCaught();
+                        if(catchResult == true && nActions > 0){
+                            nActions = 0;
+                        }
                         break;
-                case 4: return; 
+                case 4: nActions = 0;
+                return; 
             };
             nActions--;
             if(nActions == 0 && catchResult == false){
