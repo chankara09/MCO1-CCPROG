@@ -62,16 +62,23 @@ public class BattlePhase {
             switch(nAction){
                 case 1: Attack(A_Creature);
                     break;
-                case 2: if(player.getInventory().checkCreatures()){
+                case 2: 
+                if(player.getInventory().checkCreatures()){
                     Swap();
-                }else{
+                }
+                else{
                     System.out.println("[SYSTEM MESSAGE]: NO AVAILABLE CREATURES TO SWAP");
                     continue;
                 }
                 break;
                 case 3: catchResult = isCaught();
+                        if (catchResult == true && nActions > 0){
+                            nActions = 0;
+                        }
                         break;
-                case 4: return; 
+                case 4: nActions = 0;
+                        break;
+                default:System.out.println("[ERROR]: INVALID OPTION SELECTED");
             };
             nActions--;
             if(nActions == 0 && catchResult == false){
